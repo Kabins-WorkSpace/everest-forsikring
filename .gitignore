@@ -1,0 +1,32 @@
+# env
+.env
+.env.local
+.env.*.local
+
+# frontend
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/dist
+frontend/build
+
+# backend
+backend/target
+backend/*.log
+
+# editor / os
+.DS_Store
+.idea
+.vscode
+*.iml
+
+# misc
+*.log
+
+# env files
+.env
+.env.local
+.env.*.local
+
+frontend/.env*
+backend/.env*
