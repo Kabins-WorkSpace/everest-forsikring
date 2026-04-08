@@ -67,7 +67,7 @@ export function SelectField({
     <div ref={containerRef} className={cn("relative w-full", className)}>
       <label
         htmlFor={id}
-        className="mb-3 block font-medium text-2xl mr-16 text-foreground leading-tight"
+        className="mb-3 block font-medium text-2xl mr- text-foreground leading-tight"
       >
         {label}
       </label>
@@ -80,9 +80,9 @@ export function SelectField({
         aria-invalid={Boolean(error)}
         aria-describedby={describedById}
         className={cn(
-          "flex h-12 w-full md:max-w-[28ch] items-center justify-between border bg-white px-4 text-left text-base text-foreground outline-none transition cursor-pointer",
+          "flex h-12 w-full md:max-w-[28ch] items-center justify-between border bg-neutral-sand px-4 text-left text-base text-foreground outline-none transition cursor-pointer",
           error
-            ? "border-red-400 focus:border-red-600"
+            ? "border-message-error focus:border-red-600"
             : "border-neutral-rock focus:border-neutral-slate",
           open && !error && "border-neutral-slate",
         )}
@@ -102,7 +102,7 @@ export function SelectField({
 
       {open ? (
         <div className="absolute top-full left-0 z-50 mt-1 w-full">
-          <div className="max-h-60 overflow-auto border border-neutral-rock bg-white shadow-lg">
+          <div className="max-h-60 overflow-auto border border-neutral-rock bg-neutral-sand shadow-lg">
             {options.map((option) => {
               const isSelected = option.value === value;
 

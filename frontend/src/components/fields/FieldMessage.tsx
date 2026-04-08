@@ -18,8 +18,8 @@ export function FieldMessage({
       id={id}
       className={
         variant === "error"
-          ? "flex gap-1 items-center mt-2 text-neutral-granite text-sm"
-          : "mt-2 text-neutral-stone text-sm"
+          ? "flex gap-1 items-center mt-2 text-neutral-slate text-sm"
+          : "max-w-[35ch] mt-2 text-neutral-mountain text-sm"
       }
     >
       {variant === "error" && (

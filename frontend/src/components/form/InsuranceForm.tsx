@@ -127,7 +127,8 @@ export function InsuranceForm() {
                 id="bonus"
                 label="Din bonus"
                 options={bonusOptions}
-                helperText="Velg bonusnivået ditt"
+                helperText="Bonusen vi tilbyr er basert pa dine avtaler hos oss de siste 3 arene.
+                            Dersom vi ikke finner informasion om dette, fär du tilbud om startbonus."
                 error={errors.bonus?.message}
                 value={field.value}
                 onChange={field.onChange}
