@@ -19,7 +19,7 @@ export function Button({
     <button
       type={type}
       className={cn(
-        "inline-flex h-11 cursor-pointer items-center justify-center rounded-full border px-8 font-semibold text-sm transition-colors",
+        "inline-flex h-11 cursor-pointer items-center justify-center rounded-full border px-10 font-semibold text-sm transition-colors",
         variant === "primary" &&
           "border-primary-granite bg-primary-granite text-primary-white hover:opacity-90",
         variant === "secondary" &&
