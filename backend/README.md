@@ -186,7 +186,7 @@ http://localhost:8080
 
 ## API Endpoints
 
-#### Purchase Insurance
+Purchase Insurance
 
 ```http
 POST /insurance/purchase
@@ -195,13 +195,13 @@ POST /insurance/purchase
 ## Testing
 
 Backend er testet med:
-#### •	Spring Boot Test
-#### •	MockMvc
+-	Spring Boot Test
+-	MockMvc
 
 ## Fokus
-#### •	controller-lag
-#### •	validering
-#### •	request/response flyt
+-	controller-lag
+-	validering
+-	request/response flyt
 
 ## Produksjonsklarhet
 
