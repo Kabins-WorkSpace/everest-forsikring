@@ -67,7 +67,7 @@ export function SelectField({
     <div ref={containerRef} className={cn("relative w-full", className)}>
       <label
         htmlFor={id}
-        className="mb-3 block font-bold text-[1.3125rem] text-foreground leading-7"
+        className="mb-3 block font-medium text-2xl text-foreground leading-tight"
       >
         {label}
       </label>
@@ -80,7 +80,7 @@ export function SelectField({
         aria-invalid={Boolean(error)}
         aria-describedby={describedById}
         className={cn(
-          "flex h-12 w-full max-w-xs items-center justify-between border bg-white px-4 text-left text-base text-foreground outline-none transition",
+          "flex h-12 w-full max-w-[28ch] items-center justify-between border bg-white px-4 text-left text-base text-foreground outline-none transition cursor-pointer",
           error
             ? "border-red-400 focus:border-red-600"
             : "border-neutral-rock focus:border-neutral-slate",
@@ -113,7 +113,7 @@ export function SelectField({
                   role="option"
                   aria-selected={isSelected}
                   className={cn(
-                    "block w-full px-4 py-3 text-left text-base transition",
+                    "block w-full px-4 py-3 text-left text-base transition cursor-pointer",
                     isSelected
                       ? "bg-message-info font-semibold text-foreground"
                       : "text-foreground hover:bg-neutral-mist",

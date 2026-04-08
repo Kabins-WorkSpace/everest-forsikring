@@ -1,9 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Controller, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { Controller, useForm } from "react-hook-form";
 import { SelectField } from "@/components/fields/SelectField";
 import { TextInput } from "@/components/fields/TextInput";
 import { purchaseInsurance } from "@/features/insurance/api/purchaseInsurance";
@@ -86,11 +86,11 @@ export function InsuranceForm() {
 
       <div className="space-y-10">
         <div className="space-y-5">
-          <h1 className="font-normal text-[2.25rem] text-foreground leading-11 md:text-[3.5rem] md:leading-16">
+          <h1 className="font-normal text-5xl text-foreground leading-tight md:leading-16">
             Kjøp Bilforsikring
           </h1>
 
-          <p className="max-w-[34ch] text-foreground text-lg leading-7 md:max-w-[40ch]">
+          <p className="max-w-[24ch] text-foreground text-lg  leading-7 md:max-w-[50ch]">
             Det er fire forskjellige forsikringer å velge mellom.
             Ansvarsforsikring er lovpålagt om kjøretøyet er registrert og skal
             brukes på veien. I tillegg kan du utvide forsikringen avhengig av
