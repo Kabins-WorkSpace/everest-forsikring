@@ -133,6 +133,12 @@ Dette oppsettet speiler en produksjonsnær deploy-strategi der:
 doppler run -- docker compose up --build -d
 ```
 
+hvis det fungerer ikke?
+
+```bash
+docker compose up --build -d
+```
+
 Hva skjer?
 
 	1.	Docker bygger applikasjonen (multi-stage build)

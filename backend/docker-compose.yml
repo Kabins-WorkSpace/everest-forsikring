@@ -1,15 +1,16 @@
-version: "3.8"
-
 services:
   backend:
     container_name: everest-backend
     build:
       context: .
       dockerfile: Dockerfile
+    env_file:
+      - .env
     ports:
       - "8080:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: dev
-      SPRING_OUTPUT_ANSI_ENABLED: ALWAYS
-      DOPPLER_TOKEN: ${DOPPLER_TOKEN}
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
+      - DOPPLER_CONFIG=dev
+      - DOPPLER_TOKEN=${DOPPLER_TOKEN}
     restart: unless-stopped
