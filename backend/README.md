@@ -10,33 +10,31 @@ Backend håndterer kjøp av bilforsikring ved å:
 - returnere samlet respons til frontend
 
 Backend er designet som en produksjonsnær tjeneste med fokus på:
-#### •	tydelig lagdeling (controller → service → client)
-#### •	robust input-validering
-#### •	ekstern systemintegrasjon (mock core system)
-#### •	sikker håndtering av secrets (Doppler)
-#### •	containerisert deploy (Docker)
-#### •	skybasert database (Neon PostgreSQL)
+-	tydelig lagdeling (controller → service → client)
+-	robust input-validering
+-	ekstern systemintegrasjon (mock core system)
+-	sikker håndtering av secrets (Doppler)
+-	containerisert deploy (Docker)
+-	skybasert database (Neon PostgreSQL)
 
 ## Teknologistack
-#### •	Java 17
-#### •	Spring Boot
-#### •	Spring Web (REST API)
-#### •	Spring Validation (Jakarta Validation)
-#### •	WebClient (ekstern integrasjon)
-#### •	PostgreSQL (Neon)
-#### •	Docker
-#### •	Doppler (secrets management)
-#### •	Maven
+-	Java 17
+-	Spring Boot
+-	Spring Web (REST API)
+-	WebClient (ekstern integrasjon)
+-	PostgreSQL (Neon)
+-	Doppler (secrets management)
+-	Maven
 
 ## Arkitektur
 
 Backend er strukturert etter klassisk lagdeling:
 
-#####  controller/   → håndterer HTTP requests
-#####  service/      → forretningslogikk
-#####  client/       → integrasjon mot eksterne systemer
-#####  dto/          → request/response modeller
-#####  config/       → konfigurasjon (WebClient, etc.)
+-	controller/   → håndterer HTTP requests
+-	service/      → forretningslogikk
+-	client/       → integrasjon mot eksterne systemer
+-	dto/          → request/response modeller
+-	config/       → konfigurasjon (WebClient, etc.)
 
 ## Designprinsipper
 
@@ -48,19 +46,19 @@ Backend er strukturert etter klassisk lagdeling:
 
 ## Dataflyt (End-to-End)
 
-#### 1.	Frontend sender request → /insurance/purchase
-#### 2.	Controller mottar og validerer input (@Valid)
-#### 3.	Service orkestrerer flyten:
+1.	Frontend sender request → /insurance/purchase
+2.	Controller mottar og validerer input (@Valid)
+3.	Service orkestrerer flyten:
         •	oppretter kunde
 	    •	oppretter avtale
-#### 4.	Client-laget kaller eksternt system (mock core system)
-#### 5.	Respons samles og returneres til frontend
+4.	Client-laget kaller eksternt system (mock core system)
+5.	Respons samles og returneres til frontend
 
 ## Ekstern integrasjon
 
 Backend simulerer integrasjon med et “core system”:
-#### •	/mock/core-system/customers
-#### •	/mock/core-system/agreements
+-	/mock/core-system/customers
+-	/mock/core-system/agreements
 
 Disse kallene gjøres via WebClient.
 
@@ -170,18 +168,18 @@ Hvorfor viktig?
 
 ## Lokal utvikling
 
-#### 1. Gå til backend
+1. Gå til backend
 
 ```bash
 cd backend
 ```
 
-#### 2. Start med Docker + Doppler
+2. Start med Docker + Doppler
 ```bash
 doppler run -- docker compose up --build -d
 ```
 
-#### 3.	Backend kjører på:
+3.	Backend kjører på:
 ```bash
 http://localhost:8080
 ```
@@ -208,12 +206,12 @@ Backend er testet med:
 ## Produksjonsklarhet
 
 Denne backend-løsningen demonstrerer:
-##### •	container-basert deploy
-##### •	ekstern database (Neon)
-##### •	secrets management (Doppler)
-##### •	tydelig arkitektur
-##### •	validering og feilhåndtering
-##### •	integrasjon mot eksterne systemer
+-	container-basert deploy
+-	ekstern database (Neon)
+-	secrets management (Doppler)
+-	tydelig arkitektur
+-	validering og feilhåndtering
+-	integrasjon mot eksterne systemer
 
 ## Videre forbedringer
 
