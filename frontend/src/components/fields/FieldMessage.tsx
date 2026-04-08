@@ -1,3 +1,5 @@
+import { MdError } from "react-icons/md";
+
 type FieldMessageProps = {
   message?: string;
   variant?: "helper" | "error";
@@ -12,15 +14,19 @@ export function FieldMessage({
   if (!message) return null;
 
   return (
-    <p
+    <div
       id={id}
       className={
         variant === "error"
-          ? "mt-2 text-neutral-granite text-sm"
+          ? "flex gap-1 items-center mt-2 text-neutral-granite text-sm"
           : "mt-2 text-neutral-stone text-sm"
       }
     >
-      {message}
-    </p>
+      {variant === "error" && (
+        <MdError className="text-neutral-slate text-lg" />
+      )}
+
+      <p className="mt-1">{message}</p>
+    </div>
   );
 }
