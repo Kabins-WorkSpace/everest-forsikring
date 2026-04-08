@@ -1,26 +1,24 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useMemo } from "react";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-
+import { useRouter } from "next/navigation";
+import { useMemo, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
 import { SelectField } from "@/components/fields/SelectField";
 import { TextInput } from "@/components/fields/TextInput";
+import { purchaseInsurance } from "@/features/insurance/api/purchaseInsurance";
 import { insuranceFormSchema } from "@/features/insurance/schemas/insuranceFormSchema";
 import type { InsuranceFormValues } from "@/features/insurance/types/insurance";
+import { mapFormToRequest } from "@/features/insurance/utils/mapFormToRequest";
+import {
+  cleanRegistrationNumber,
+  formatRegistrationNumber,
+} from "@/lib/formatter/formatRegistrationNumber";
 import { ErrorSummary } from "./ErrorSummary";
+import { FormApiMessage } from "./FormApiMessage";
 import { FormSection } from "./FormSection";
 import { SubmitActions } from "./SubmitActions";
-import { FormApiMessage } from "./FormApiMessage";
-import { Controller } from "react-hook-form";
-import {
-  formatRegistrationNumber,
-  cleanRegistrationNumber,
-} from "@/lib/formatter/formatRegistrationNumber";
-import { useRouter } from "next/navigation";
-import { mapFormToRequest } from "@/features/insurance/utils/mapFormToRequest";
-import { purchaseInsurance } from "@/features/insurance/api/purchaseInsurance";
+
 const bonusOptions = [
   { label: "0 %", value: "0" },
   { label: "10 %", value: "10" },
@@ -88,7 +86,7 @@ export function InsuranceForm() {
 
       <div className="space-y-10">
         <div className="space-y-5">
-          <h1 className="font-normal text-[2.25rem] text-foreground leading-[2.75rem] md:text-[3.5rem] md:leading-[4rem]">
+          <h1 className="font-normal text-[2.25rem] text-foreground leading-11 md:text-[3.5rem] md:leading-16">
             Kjøp Bilforsikring
           </h1>
 
@@ -151,6 +149,7 @@ export function InsuranceForm() {
             <TextInput
               id="firstName"
               label="Fornavn"
+              placeholder="Simen"
               error={errors.firstName?.message}
               {...register("firstName")}
             />
@@ -158,6 +157,7 @@ export function InsuranceForm() {
             <TextInput
               id="lastName"
               label="Etternavn"
+              placeholder="Sægrov"
               error={errors.lastName?.message}
               {...register("lastName")}
             />

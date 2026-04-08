@@ -1,8 +1,8 @@
+import { endpoints } from "@/lib/api/endpoints";
 import type {
   PurchaseInsuranceRequest,
   PurchaseInsuranceResponse,
 } from "../types/insurance";
-import { endpoints } from "@/lib/api/endpoints";
 
 export async function purchaseInsurance(
   payload: PurchaseInsuranceRequest,

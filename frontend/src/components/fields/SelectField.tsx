@@ -67,7 +67,7 @@ export function SelectField({
     <div ref={containerRef} className={cn("relative w-full", className)}>
       <label
         htmlFor={id}
-        className="mb-3 block font-bold text-[1.3125rem] leading-7 text-foreground"
+        className="mb-3 block font-bold text-[1.3125rem] text-foreground leading-7"
       >
         {label}
       </label>
@@ -80,7 +80,7 @@ export function SelectField({
         aria-invalid={Boolean(error)}
         aria-describedby={describedById}
         className={cn(
-          "flex h-12 w-full items-center justify-between border bg-white px-4 text-left text-base text-foreground outline-none transition",
+          "flex h-12 w-full max-w-xs items-center justify-between border bg-white px-4 text-left text-base text-foreground outline-none transition",
           error
             ? "border-red-400 focus:border-red-600"
             : "border-neutral-rock focus:border-neutral-slate",
@@ -94,14 +94,14 @@ export function SelectField({
 
         <FaChevronDown
           className={cn(
-            "ml-2 shrink-0 text-xs text-neutral-stone transition-transform",
+            "ml-2 shrink-0 text-neutral-stone text-xs transition-transform",
             open && "rotate-180",
           )}
         />
       </button>
 
       {open ? (
-        <div className="absolute left-0 top-full z-50 mt-1 w-full">
+        <div className="absolute top-full left-0 z-50 mt-1 w-full">
           <div className="max-h-60 overflow-auto border border-neutral-rock bg-white shadow-lg">
             {options.map((option) => {
               const isSelected = option.value === value;

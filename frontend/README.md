@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Everest Forsikring – Frontend
 
-## Getting Started
+Dette repositoryet inneholder frontend-applikasjonen for Everest Forsikring, en enkel, produksjonsinspirert løsning for kjøp av bilforsikring.
 
-First, run the development server:
+Applikasjonen er bygget med fokus på:
+	•	strukturert arkitektur
+	•	god brukeropplevelse (UX)
+	•	tilgjengelighet (accessibility)
+	•	tydelig separasjon mellom UI, validering og API-lag
 
-```bash
+## Live demo (UI)
+
+Frontend er deployert på Vercel: https://everest-forsikring.vercel.app/insurance
+
+⚠️ Merk: Backend er foreløpig ikke deployert til produksjon, så API-kall vil ikke fungere i live-versjonen.
+Denne deployen brukes primært for:
+	•	visuell kvalitetssikring
+	•	responsiv testing (mobil / desktop)
+	•	UX-evaluering
+
+## Teknologistack
+
+	•	Next.js (App Router)
+	•	TypeScript
+	•	React Hook Form
+	•	Zod (validering)
+	•	Tailwind CSS
+	•	Framer Motion (animasjon)
+	•	Vercel (deployment)
+
+## Arkitektur
+
+Frontend er strukturert etter ansvar:
+src/
+  app/                # routing (Next.js App Router)
+  components/         # presentasjonskomponenter
+  features/insurance/ # domenelogikk (schema, api, mapping)
+  lib/                # felles utilities (formatters, helpers)
+
+Viktige prinsipper
+	•	Separation of concerns
+	•	Reusable components
+	•	Typed data flow (TypeScript + Zod)
+	•	Isolert API-lag
+	•	Minimal coupling mellom UI og backend
+
+
+## Dataflyt
+
+User input (UI)
+↓
+React Hook Form (state management)
+↓
+Zod (validering)
+↓
+mapFormToRequest (transformasjon)
+↓
+API call (purchaseInsurance)
+↓
+Response → redirect / error state
+
+## Skjema og validering
+
+Skjemaet håndteres av:
+	•	React Hook Form – state og submit
+	•	Zod – validering
+
+  ### Eksempel
+  registrationNumber: z
+  .string()
+  .regex(/^[A-Za-z]{2}\d{5}$/)
+
+Viktig designvalg
+	•	Validering er definert ett sted (Zod)
+	•	TypeScript typer genereres automatisk fra schema
+	•	Frontend og backend kontrakt holdes synkronisert
+
+## Spesialtilfelle: Registreringsnummer
+
+Dette feltet håndteres med en controlled input via Controller.
+
+Hvorfor?
+
+UI og intern verdi er forskjellige:
+UI:        AB 12345
+State:     AB12345
+
+Dette løses ved å:
+	•	formatere verdi i UI (formatRegistrationNumber)
+	•	lagre ren verdi i state (cleanRegistrationNumber)
+
+Dette er et bevisst valg for:
+	•	bedre brukeropplevelse
+	•	korrekt validering
+
+## UI-komponenter
+
+Komponentene er delt i:
+
+components/fields/
+	•	TextInput
+	•	SelectField
+	•	FieldMessage
+
+components/form/
+	•	InsuranceForm
+	•	ErrorSummary
+	•	FormApiMessage
+	•	SubmitActions
+  •	FormSection
+
+components/layout/
+	•	ContentCard
+	•	PageContainer
+
+components/ui/
+	•	Button
+
+
+Designvalg
+	•	komponenter er “dumme” (presentational)
+	•	all logikk ligger i form-laget
+	•	fokus på gjenbruk og konsistens
+
+## API-integrasjon
+
+Frontend kommuniserer med backend via: purchaseInsurance(payload)
+
+Payload genereres via: mapFormToRequest(formData)
+
+Dette gir:
+	•	fleksibilitet ved endringer
+	•	isolasjon mellom UI og backend
+
+## Lokal utvikling
+
+1. Klon repo
+git clone <repo-url>
+cd everest-frontend
+
+2. Installer dependencies
+npm install
+
+3. Start utviklingsserver
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Applikasjonen kjører på:
+http://localhost:3000 eller 3001...
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+For full funksjonalitet må backend kjøre lokalt.
+Backend-repo:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Testing og Kvalitet
 
-To learn more about Next.js, take a look at the following resources:
+Frontend er bygget med fokus på:
+	•	tydelig feilhåndtering
+	•	tilgjengelighet (aria-*)
+	•	strukturert layout
+	•	konsistent design
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Live deploy brukes til:
+	•	visuell inspeksjon
+	•	responsiv testing
+	•	UX-validering
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Videre forbedring
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+	•	Cursor/caret-håndtering for masked inputs
+	•	Bedre keyboard accessibility for SelectField
+	•	End-to-end testing (Cypress)
+	•	Backend deployment (VPS / cloud)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Kontakt
+
+Ta gjerne kontakt for spørsmål eller gjennomgang av løsning. 
