@@ -30,7 +30,7 @@ export function TextInput({
     <div className={cn("w-full", className)}>
       <label
         htmlFor={id}
-        className="mb-3 block font-medium text-2xl text-foreground leading-7"
+        className="mb-3 block font-medium mr-16 text-2xl text-foreground leading-7"
       >
         {label}
       </label>
@@ -40,7 +40,7 @@ export function TextInput({
         aria-invalid={Boolean(error)}
         aria-describedby={describedById}
         className={cn(
-          "h-12 w-full max-w-[28ch] border bg-white px-4 text-base text-foreground outline-none placeholder:text-neutral-rock",
+          "h-12 w-full md:max-w-[28ch] border bg-white px-4 text-base text-foreground outline-none placeholder:text-neutral-rock",
           error
             ? "border-message-error bg-message-error focus:border-message-error"
             : "border-neutral-rock focus:border-neutral-slate",
