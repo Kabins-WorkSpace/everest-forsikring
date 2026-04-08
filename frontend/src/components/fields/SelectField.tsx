@@ -82,7 +82,7 @@ export function SelectField({
         className={cn(
           "flex h-12 w-full md:max-w-[28ch] items-center justify-between border bg-neutral-sand px-4 text-left text-base text-foreground outline-none transition cursor-pointer",
           error
-            ? "border-message-error focus:border-red-600"
+            ? "border-message-error bg-message-error focus:border-message-error"
             : "border-neutral-rock focus:border-neutral-slate",
           open && !error && "border-neutral-slate",
         )}
@@ -101,7 +101,7 @@ export function SelectField({
       </button>
 
       {open ? (
-        <div className="absolute top-full left-0 z-50 mt-1 w-full">
+        <div className="absolute top-full left-0 z-50 mt-1 w-full md:max-w-[28ch]">
           <div className="max-h-60 overflow-auto border border-neutral-rock bg-neutral-sand shadow-lg">
             {options.map((option) => {
               const isSelected = option.value === value;
