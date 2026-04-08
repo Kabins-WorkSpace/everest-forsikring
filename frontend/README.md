@@ -34,18 +34,18 @@ Deployen brukes primært til:
 ## Arkitektur
 
 Frontend er strukturert etter ansvar:
-src/
-app/ # routing (Next.js App Router)
-components/ # presentasjonskomponenter
-features/insurance/ # domenelogikk (schema, api, mapping)
-lib/ # felles utilities (formatters, helpers)
+- src/
+- app/ # routing (Next.js App Router)
+- components/ # presentasjonskomponenter
+- features/insurance/ # domenelogikk (schema, api, mapping)
+- lib/ # felles utilities (formatters, helpers)
 
 Viktige prinsipper
-• Separation of concerns
-• Reusable components
-• Typed data flow (TypeScript + Zod)
-• Isolert API-lag
-• Minimal coupling mellom UI og backend
+- Separation of concerns
+- Reusable components
+- Typed data flow (TypeScript + Zod)
+- Isolert API-lag
+- Minimal coupling mellom UI og backend
 
 ## Dataflyt
 
@@ -59,8 +59,8 @@ Viktige prinsipper
 ## Skjema og validering
 
 Skjemaet håndteres av:
-• React Hook Form – state og submit
-• Zod – validering
+- React Hook Form – state og submit
+- Zod – validering
 
 ### Eksempel (Zod validering)
 
@@ -69,9 +69,9 @@ registrationNumber: z.string().regex(/^[A-Za-z]{2}\d{5}$/);
 ```
 
 Viktig designvalg
-• Validering er definert ett sted (Zod)
-• TypeScript typer genereres automatisk fra schema
-• Frontend og backend kontrakt holdes synkronisert
+- Validering er definert ett sted (Zod)
+- TypeScript typer genereres automatisk fra schema
+- Frontend og backend kontrakt holdes synkronisert
 
 ## Spesialtilfelle: Registreringsnummer
 
@@ -84,40 +84,40 @@ UI: AB 12345
 State: AB12345
 
 Dette løses ved å:
-• formatere verdi i UI (formatRegistrationNumber)
-• lagre ren verdi i state (cleanRegistrationNumber)
+- formatere verdi i UI (formatRegistrationNumber)
+- lagre ren verdi i state (cleanRegistrationNumber)
 
 Dette er et bevisst valg for:
-• bedre brukeropplevelse
-• korrekt validering
+- bedre brukeropplevelse
+- korrekt validering
 
 ## UI-komponenter
 
 Komponentene er delt i:
 
-components/fields/
-• TextInput
-• SelectField
-• FieldMessage
+### components/fields/
+- TextInput
+- SelectField
+- FieldMessage
 
-components/form/
-• InsuranceForm
-• ErrorSummary
-• FormApiMessage
-• SubmitActions
-• FormSection
+### components/form/
+- InsuranceForm
+- ErrorSummary
+- FormApiMessage
+- SubmitActions
+- FormSection
 
-components/layout/
-• ContentCard
-• PageContainer
+### components/layout/
+- ContentCard
+- PageContainer
 
-components/ui/
-• Button
+### components/ui/
+- Button
 
-Designvalg
-• komponenter er “dumme” (presentational)
-• all logikk ligger i form-laget
-• fokus på gjenbruk og konsistens
+### Designvalg
+- komponenter er “dumme” (presentational)
+- all logikk ligger i form-laget
+- fokus på gjenbruk og konsistens
 
 ## API-integrasjon
 
@@ -126,8 +126,8 @@ Frontend kommuniserer med backend via: purchaseInsurance(payload)
 Payload genereres via: mapFormToRequest(formData)
 
 Dette gir:
-• fleksibilitet ved endringer
-• isolasjon mellom UI og backend
+- fleksibilitet ved endringer
+- isolasjon mellom UI og backend
 
 ## Lokal utvikling
 
@@ -152,15 +152,15 @@ Backend-repo: https://github.com/Kabins-WorkSpace/everest-forsikring/tree/main/b
 ## Testing og Kvalitet
 
 Frontend er bygget med fokus på:
-• tydelig feilhåndtering
-• tilgjengelighet (aria-\*)
-• strukturert layout
-• konsistent design
+- tydelig feilhåndtering
+- tilgjengelighet (aria-\*)
+- strukturert layout
+- konsistent design
 
 Live deploy brukes til:
-• visuell inspeksjon
-• responsiv testing
-• UX-validering
+- visuell inspeksjon
+- responsiv testing
+- UX-validering
 
 ## Videre forbedring
 
