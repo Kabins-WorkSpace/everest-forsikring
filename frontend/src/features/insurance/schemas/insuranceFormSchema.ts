@@ -14,7 +14,8 @@ export const insuranceFormSchema = z.object({
 
   nationalIdentityNumber: z
     .string()
-    .regex(/^\d{11}$/, "Du må fylle ut fødselsnummer, 11 siffer"),
+    .min(1, "Du må fylle ut fødselsnummer")
+    .regex(/^\d{11}$/, "Fødselsnummer må være 11 siffer"),
 
   firstName: z
     .string()

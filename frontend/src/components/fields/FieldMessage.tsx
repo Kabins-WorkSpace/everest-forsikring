@@ -18,15 +18,15 @@ export function FieldMessage({
       id={id}
       className={
         variant === "error"
-          ? "flex gap-1 items-center mt-2 text-neutral-slate text-sm"
+          ? "flex gap-1 items-start md:max-w-[35ch] mt-2 text-neutral-slate text-sm"
           : "max-w-[35ch] mt-2 text-neutral-mountain text-sm"
       }
     >
       {variant === "error" && (
-        <MdError className="text-neutral-slate text-lg" />
+        <MdError className="text-neutral-slate text-lg size-4" />
       )}
 
-      <p className="mt-1">{message}</p>
+      <p className="">{message}</p>
     </div>
   );
 }
