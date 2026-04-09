@@ -26,7 +26,7 @@ export function PurchaseCompletion() {
       {accentDots.map((dot, index) => (
         <motion.span
           key={`${dot.top}-${dot.left}`}
-          className="absolute h-2 w-2 rounded-full bg-primary-varde"
+          className="absolute h-2 w-2 rounded-full bg-message-success"
           style={{
             top: dot.top,
             left: dot.left,
@@ -47,7 +47,7 @@ export function PurchaseCompletion() {
         initial={{ opacity: 0, scale: 0.88, y: 8 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-primary-granite text-primary-white shadow-sm"
+        className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-message-info text-neutral-granite shadow-sm"
       >
         <motion.svg
           width="42"
